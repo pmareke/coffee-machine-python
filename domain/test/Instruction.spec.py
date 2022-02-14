@@ -9,11 +9,13 @@ from domain.Tea import Tea
 
 with description('Instruction') as self:
     with it('should creates an instruction'):
-        instruction = Instruction(Tea(), 1, 1)
+        instruction = Instruction(Tea(), 1, 1, 1)
         expect(instruction.drink.name).to(equal("T"))
 
     with it('should raises an exception creating an instruction'):
-        expect(lambda:  Instruction(Chocolate(), -1, 1)
+        expect(lambda:  Instruction(Chocolate(), -1, 1, 1)
                ).to(raise_error(NameError))
-        expect(lambda:  Instruction(Chocolate(), 1, -1)
+        expect(lambda:  Instruction(Chocolate(), 1, -1, 1)
+               ).to(raise_error(NameError))
+        expect(lambda:  Instruction(Chocolate(), 1, 1, -1)
                ).to(raise_error(NameError))
