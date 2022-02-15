@@ -14,7 +14,6 @@ with description('DrinkMakerTranslator') as self:
             instruction = Instruction(Tea(), 1, 1, 1)
             expect(DrinkMakerTranslator.translate(
                 instruction)).to(equal("T:1:0"))
-
             with it('I want to be able to send instruction to the drink maker to add one or two sugars'):
                 instruction = Instruction(Chocolate(), 0, 0, 1)
                 expect(DrinkMakerTranslator.translate(
